@@ -1,4 +1,5 @@
-﻿using HangFireAndMemoryCacher_AspNet_Core.Models;
+﻿using Hangfire;
+using HangFireAndMemoryCacher_AspNet_Core.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -15,7 +16,19 @@ namespace HangFireAndMemoryCacher_AspNet_Core.Controllers
 
         public IActionResult Index()
         {
+            ////execute on run time
+            //var id = BackgroundJob.Enqueue(() => DoSomething());
+            ////execute after given time from sarver run
+            //BackgroundJob.Schedule(() => Console.WriteLine("Hello, world"), TimeSpan.FromSeconds(10));
+            ////execute continue after given time
+            //RecurringJob.AddOrUpdate(() => DoSomething(), Cron.MinuteInterval(1));
+
             return View();
+        }
+        public void DoSomething()
+        {
+            Console.WriteLine("Test");
+            Console.WriteLine($"test2 {Guid.NewGuid()}");
         }
 
         public IActionResult Privacy()
