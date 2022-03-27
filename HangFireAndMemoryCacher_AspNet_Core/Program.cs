@@ -62,3 +62,6 @@ app.UseEndpoints(endpoints =>
 app.Run();
 
 //https://docs.hangfire.io/en/latest/getting-started/aspnet-core-applications.html
+
+// dot net 6 configuration
+//https://www.pmichaels.net/2021/11/13/running-hangfire-with-net-6-and-lite-storage/
